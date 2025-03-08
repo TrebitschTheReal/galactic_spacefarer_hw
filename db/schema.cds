@@ -5,9 +5,10 @@ using {  managed, User } from '@sap/cds/common';
 // ------------------------------
 // Galactic Spacefarers Entity
 // ------------------------------
+@odata.draft.enabled: true
 entity Spacefarers : managed {
-  key ID   : Integer;
-  name                 : String(111);        // Űrutazó neve
+  key ID   : UUID;
+  name                 : String(111) @Core.FieldControl: #ReadOnly;        // Űrutazó neve
   originPlanet         : String(111);        // Származási bolygó neve
   stardustCollection   : Integer;            // Gyűjtött csillagpor mennyisége
   wormholeNavigation   : Integer;            // Féregjárat navigációs képesség (1-100)

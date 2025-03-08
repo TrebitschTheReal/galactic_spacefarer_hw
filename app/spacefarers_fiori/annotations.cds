@@ -67,24 +67,18 @@ annotate service.Spacefarers with @(
         },
         {
             $Type : 'UI.DataField',
-            Label : 'Origin Planet',
-            Value : originPlanet,
-        },
-        {
-            $Type : 'UI.DataField',
-            Label : 'Stardust Collection',
+            Label : 'Stardust Collection Status',
             Value : stardustCollection,
         },
         {
             $Type : 'UI.DataField',
-            Label : 'Wormhole Navigation',
-            Value : wormholeNavigation,
+            Label : 'Spacesuit Color',
+            Value : spacesuitColor,
         },
-        // <-- Add an extra field so we see the Position Title directly:
         {
             $Type : 'UI.DataField',
             Label : 'Position Title',
-            Value : position.title   // Make sure we have an association "position" to "Positions"
+            Value : position.title
         },
     ],
 );

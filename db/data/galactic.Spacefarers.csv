@@ -1,6 +1,6 @@
-ID;name;originPlanet;stardustCollection;wormholeNavigation;spacesuitColor;position_ID;department_ID;createdAt;createdBy;modifiedAt;modifiedBy
-1;Luke Skywanderer;Tatooine;500;85;White;1;1;2025-03-08T16:05:34.030Z;anonymous;2025-03-08T16:05:34.030Z;anonymous
-2;Leia Starfighter;Alderaan;300;90;Red;2;2;2025-03-08T16:05:34.030Z;anonymous;2025-03-08T16:05:34.030Z;anonymous
-3;Han Meteor;Corellia;200;75;Black;3;3;2025-03-08T16:05:34.030Z;anonymous;2025-03-08T16:05:34.030Z;anonymous
-4;Rey Cosmos;Jakku;450;95;Gold;1;2;2025-03-08T16:05:34.030Z;anonymous;2025-03-08T16:05:34.030Z;anonymous
-5;Darth Eclipse;Mustafar;600;100;Dark Red;4;4;2025-03-08T16:05:34.030Z;anonymous;2025-03-08T16:05:34.030Z;anonymous
+name;originPlanet;stardustCollection;wormholeNavigation;spacesuitColor;position_ID;department_ID;createdAt;createdBy;modifiedAt;modifiedBy
+Luke Skywanderer;Tatooine;500;85;White;1;1;2025-03-08T16:05:34.030Z;anonymous;2025-03-08T16:05:34.030Z;anonymous
+Leia Starfighter;Alderaan;300;90;Red;2;2;2025-03-08T16:05:34.030Z;anonymous;2025-03-08T16:05:34.030Z;anonymous
+Han Meteor;Corellia;200;75;Black;3;3;2025-03-08T16:05:34.030Z;anonymous;2025-03-08T16:05:34.030Z;anonymous
+Rey Cosmos;Jakku;450;95;Gold;1;2;2025-03-08T16:05:34.030Z;anonymous;2025-03-08T16:05:34.030Z;anonymous
+Darth Eclipse;Mustafar;600;100;Dark Red;4;4;2025-03-08T16:05:34.030Z;anonymous;2025-03-08T16:05:34.030Z;anonymous
