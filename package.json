@@ -1,0 +1,31 @@
+{
+  "name": "galactic-spacefarer-adventure",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "*",
+    "express": "*",
+    "sqlite3": "*"
+
+  },
+  "cds": {
+    "features": {
+      "log-level": "debug"
+    },
+    "requires": {
+      "db": {
+        "kind": "sqlite"
+      }
+    }
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^1",
+    "@cap-js/cds-types": "^0.9.0"
+  },
+  "scripts": {
+    "start": "cds-serve"
+  }
+}
