@@ -1,27 +1,35 @@
-### Reset stuff
+## Install project
+`rm -f -r node_modules/ && rm -rf db/*.db && npm i && cds deploy && cds watch`
 
+### Reset stuff
 `rm -rf db/*.db && cds deploy --with-mocks && cds watch`
 
 ### GET all
-
 `curl -X GET "http://localhost:4004/odata/v4/galactic/Spacefarers" -H "Accept: application/json"`
 
 ### GET by Id
-
 `curl -X GET "http://localhost:4004/odata/v4/galactic/Spacefarers(1)" -H "Accept: application/json"`
 
 ### CREATE
-
 `curl -X POST "http://localhost:4004/odata/v4/galactic/Spacefarers"      -H "Content-Type: application/json"      -d '{"name": "Bosdsadba Nebula", "originPlanet": "Kamino", "stardustCollection": 350, "wormholeNavigation": 80, "spacesuitColor": "Silver"}'`
 
 ### UPDATE
-
 `curl -X PUT "http://localhost:4004/odata/v4/galactic/Spacefarers(6)" -H "Content-Type: application/json" \-d '{"spacesuitColor": "Platinum"}'`
 
 ### DELETE
-
 `curl -X DELETE "http://localhost:4004/odata/v4/galactic/Spacefarers(6)"`
 
+### Add Fiori UI
+`npm install -g yo`
+`npm install -g @sap/generator-fiori`
+`yo --generators`
+`yo @sap/fiori`
+
+
+
+
+---
+---
 # Getting Started
 
 Welcome to your new project.

@@ -28,6 +28,10 @@
     "@cap-js/sqlite": "^1"
   },
   "scripts": {
-    "start": "cds-serve"
-  }
+    "start": "cds-serve",
+    "watch-spacefarers_fiori": "cds watch --open spacefarers_fiori/webapp/index.html?sap-ui-xx-viewCache=false"
+  },
+  "sapux": [
+    "app/spacefarers_fiori"
+  ]
 }
