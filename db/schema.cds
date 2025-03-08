@@ -1,11 +1,12 @@
 namespace galactic;
 
-using { cuid, managed, User } from '@sap/cds/common';
+using {  managed, User } from '@sap/cds/common';
 
 // ------------------------------
 // Galactic Spacefarers Entity
 // ------------------------------
-entity Spacefarers : cuid, managed {
+entity Spacefarers : managed {
+  key ID   : Integer;
   name                 : String(111);        // Űrutazó neve
   originPlanet         : String(111);        // Származási bolygó neve
   stardustCollection   : Integer;            // Gyűjtött csillagpor mennyisége
@@ -20,7 +21,8 @@ entity Spacefarers : cuid, managed {
 // ------------------------------
 // Galactic Positions Entity
 // ------------------------------
-entity Positions : cuid, managed {
+entity Positions : managed {
+  key ID   : Integer;
   title               : String(100);         // Pozíció neve (Pl.: Fleet Commander)
   cosmicRank          : Integer;             // Rang (1-10)
   requiredSkill       : Integer;             // Szükséges navigációs képesség (1-100)
@@ -30,7 +32,8 @@ entity Positions : cuid, managed {
 // ------------------------------
 // Intergalactic Departments Entity
 // ------------------------------
-entity IntergalacticDepartments : cuid, managed {
+entity IntergalacticDepartments : managed {
+  key ID   : Integer;
   name                : String(100);         // Osztály neve (Pl.: Galactic Research)
   headquartersPlanet  : String(100);         // Központi bolygó neve
   fleetSize          : Integer;              // Flotta mérete
@@ -40,7 +43,8 @@ entity IntergalacticDepartments : cuid, managed {
 // ------------------------------
 // Cosmic Security Entity
 // ------------------------------
-entity SpacefarerSecurity : cuid, managed {
+entity SpacefarerSecurity : managed {
+  key ID   : Integer;
   spacefarer          : Association to Spacefarers;  // Űrutazó referencia
   restrictedPlanets   : String(500); // Az a bolygólista, amelyhez nincs hozzáférése
   accessLevel         : Integer;      // Hozzáférési szint (1 = Alap, 5 = VIP)
