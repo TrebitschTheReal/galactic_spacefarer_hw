@@ -1,5 +1,5 @@
 ## Install project
-`rm -f -r node_modules/ && rm -rf db/*.db && npm i && cds deploy && cds watch`
+`rm -f -r node_modules/ && rm -rf *.db && npm i && cds deploy && cds watch`
 
 ### Reset stuff
 `rm -rf db/*.db && cds deploy --with-mocks && cds watch`
@@ -25,6 +25,10 @@
 `yo --generators`
 `yo @sap/fiori`
 
+#### This List Report and Object Page is protected, so you need credentials to access
+Please use alice's admin credentials, to access the dashboard
+
+https://cap.cloud.sap/docs/node.js/authentication#mock-users
 
 
 
