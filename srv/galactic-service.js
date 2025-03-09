@@ -34,6 +34,10 @@ module.exports = cds.service.impl(async function () {
         return `✅ Spacefarer with ID ${spacefarerID} updated successfully!`;
     });
 
+    this.before('READ', Spacefarers, (req) => {
+        req.query.limit = req.query.limit || { rows: { val: 5 } };
+    });
+
     this.on('RemoveSpacefarer', async (req) => {
         const { spacefarerID } = req.data;
         const tx = cds.transaction(req);

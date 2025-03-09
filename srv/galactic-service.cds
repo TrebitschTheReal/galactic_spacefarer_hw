@@ -6,7 +6,6 @@ service GalacticService {
   // --------------------------
   // Primary Entities
   // --------------------------
-  @odata.draft.enabled: true
   entity Spacefarers as projection on g.Spacefarers {
       key ID,
       @readonly name,

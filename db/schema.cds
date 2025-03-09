@@ -16,7 +16,7 @@ entity Spacefarers : managed {
   // Intergalaktikus kapcsolatok
   position             : Association to Positions;  // Pozíció az intergalaktikus szervezetben
   department           : Association to IntergalacticDepartments; // Űrkutató osztály
-}
+};
 
 // ------------------------------
 // Galactic Positions Entity
