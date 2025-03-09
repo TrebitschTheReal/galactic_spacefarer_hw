@@ -8,13 +8,13 @@ service GalacticService {
   // --------------------------
   entity Spacefarers as projection on g.Spacefarers {
       key ID,
-      @readonly name,
-      @readonly originPlanet,
+      name,
+      originPlanet,
       stardustCollection,
-      @readonly wormholeNavigation,
+      wormholeNavigation,
       spacesuitColor,
-      @readonly position,
-      @readonly department
+      position,
+      department
   };
   entity Positions as projection on g.Positions;
   entity IntergalacticDepartments as projection on g.IntergalacticDepartments;
