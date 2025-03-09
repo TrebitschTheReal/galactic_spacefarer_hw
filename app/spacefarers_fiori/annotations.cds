@@ -57,11 +57,6 @@ annotate service.Spacefarers with @(
     UI.LineItem : [
         {
             $Type : 'UI.DataField',
-            Label : 'Spacefarer ID',
-            Value : ID,
-        },
-        {
-            $Type : 'UI.DataField',
             Label : 'Name',
             Value : name,
         },
