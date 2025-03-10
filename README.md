@@ -1,8 +1,8 @@
 ## Install project
-`rm -f -r node_modules/ && rm -rf *.db && npm i && cds deploy && cds watch`
+`rm -f -r node_modules/ && rm -rf db.* && npm i && cds deploy && cds watch`
 
 ### Reset stuff
-`rm -rf db/*.db && cds deploy --with-mocks && cds watch`
+`rm -rf db.* && cds deploy --with-mocks && cds watch`
 
 ### GET all
 `curl -X GET "http://localhost:4004/odata/v4/galactic/Spacefarers" -H "Accept: application/json"`
@@ -25,9 +25,12 @@
 `yo --generators`
 `yo @sap/fiori`
 
-#### This List Report and Object Page is protected, so you need credentials to access
-Please use alice's admin credentials, to access the dashboard
+### Authentication & Authorization
+Please use user `alice`'s admin credentials, to access the dashboard.
 
+user `dave`, despite having admin privileges, cannot access the dashboard because he resides on a restricted planet.
+
+We are using customized `@sap/cds` provided mock users for authentication.
 https://cap.cloud.sap/docs/node.js/authentication#mock-users
 
 

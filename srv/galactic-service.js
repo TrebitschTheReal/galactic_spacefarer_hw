@@ -1,7 +1,17 @@
 const cds = require('@sap/cds');
+const nodemailer = require('nodemailer');
 
 module.exports = cds.service.impl(async (srv) => {
     const {Spacefarers} = srv.entities;
+    const RESTRICTED_PLANETS = ['Mars', 'Jupiter'];
+
+    // Users from restricted planets cannot access Spacefarers' data.
+    srv.before('*', req => {
+        const isAccessRestricted = RESTRICTED_PLANETS.some(restrictedPlanet => restrictedPlanet === req.user.planet);
+        if (isAccessRestricted) {
+            req.reject(403, 'Unauthorized access');
+        }
+    });
 
     // ------------------------------------------
     // BEFORE: UPDATE / CREATE - Validate Inputs
@@ -34,11 +44,17 @@ module.exports = cds.service.impl(async (srv) => {
         }
     });
 
-    // ------------------------------------------------
-    // AFTER: CREATE - Send Fiori & Console Notification
-    // ------------------------------------------------
-    srv.after('CREATE', Spacefarers, (data, req) => {
-        req.info(`Welcome to the SAP Galaxy, ${data.name}! An email will be sent to your email address with further instructions.`);
+    // ---------------------------------------------------------
+    // AFTER: CREATE - Send Fiori & Console Notification & Email
+    // ---------------------------------------------------------
+    srv.after('CREATE', Spacefarers, async (data, req) => {
+        // Generate SMTP service account from ethereal.email
+        try {
+            await sendTestMail(data);
+            req.info(`Welcome to the SAP Galaxy, ${data.name}! An email will be sent to your email address with further instructions.`);
+        } catch (error) {
+            req.reject(error);
+        }
     });
 
     // ------------------------------------------------
@@ -83,3 +99,44 @@ module.exports = cds.service.impl(async (srv) => {
         return `🗑️ Spacefarer with ID ${spacefarerID} removed successfully!`;
     });
 });
+
+
+const sendTestMail = async (data) => {
+    try {
+        // Create a test account
+        let testAccount = await nodemailer.createTestAccount();
+        // Configure the transporter
+        let transporter = nodemailer.createTransport({
+            host: testAccount.smtp.host,
+            port: testAccount.smtp.port,
+            secure: testAccount.smtp.secure,
+            auth: {
+                user: testAccount.user,
+                pass: testAccount.pass
+            },
+            logger: true,
+            transactionLog: true,
+            allowInternalNetworkInterfaces: false
+        });
+
+        // Define email content
+        let message = {
+            from: '"Nodemailer" <example@nodemailer.com>',
+            to: `"${data?.name || 'User'}" <example@nodemailer.com>`,
+            subject: 'Hello fellow Spacefarer!',
+            text: `Welcome ${data?.name || 'User'}!`,
+            html: `<p><b>Hello</b>, Welcome ${data?.name || 'User'}!</p>`
+        };
+
+        // Send email
+        let info = await transporter.sendMail(message);
+        console.log('✅ Message sent successfully!');
+        console.log('📩 Preview URL:', nodemailer.getTestMessageUrl(info));
+        return info;
+    } catch (error) {
+        console.error('❌ Email sending failed:', error.message);
+        throw error;
+    }
+};
+
+
