@@ -17,7 +17,8 @@ system.
 Each Spacefarer is assigned to one Position, and each Spacefarer belongs to one Intergalactic Department.
 (many-to-one relationships)
 
-Additionally, each Spacefarer has attributes such as name, origin planet, stardust collection, spacesuit color, and wormhole navigation
+Additionally, each Spacefarer has attributes such as name, origin planet, stardust collection, spacesuit color, and
+wormhole navigation
 skills.
 
 ![readme_uml_data.png](readme_uml_data.png)
@@ -83,4 +84,9 @@ For more information, please check: https://www.nodemailer.com/smtp/testing/
 
 ---
 
-Learn more at https://cap.cloud.sap/docs/get-started/
+## Documentations used:
+
+- #### [CAP Documentation - https://cap.cloud.sap/docs/about/](https://cap.cloud.sap/docs/about/)
+- #### [SAPUI5 Doc - https://sapui5.hana.ondemand.com/sdk/#/topic/](https://sapui5.hana.ondemand.com/sdk/#/topic/)
+- #### [Nodemailer - https://www.nodemailer.com/smtp/testing/ ](https://www.nodemailer.com/smtp/testing/)
+- #### [SAPUI5 Storybook - https://sapui5.hana.ondemand.com/sdk/test-resources/ ](https://sapui5.hana.ondemand.com/sdk/test-resources/sap/fe/core/fpmExplorer/index.html#/buildingBlocks/table)
