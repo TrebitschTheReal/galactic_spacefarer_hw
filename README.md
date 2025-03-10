@@ -1,31 +1,56 @@
-## Install project
-`rm -f -r node_modules/ && rm -rf db.* && npm i && cds deploy && cds watch`
+# Welcome to Spacefarers!
 
-### Reset stuff
-`rm -rf db.* && cds deploy --with-mocks && cds watch`
+---
 
-### GET all
-`curl -X GET "http://localhost:4004/odata/v4/galactic/Spacefarers" -H "Accept: application/json"`
 
-### GET by Id
-`curl -X GET "http://localhost:4004/odata/v4/galactic/Spacefarers(1)" -H "Accept: application/json"`
+This is a simple dashboard where the admin user can create, read, update, and delete data displayed on the List Report
+Page.
 
-### CREATE
-`curl -X POST "http://localhost:4004/odata/v4/galactic/Spacefarers"      -H "Content-Type: application/json"      -d '{"name": "Bosdsadba Nebula", "originPlanet": "Kamino", "stardustCollection": 350, "wormholeNavigation": 80, "spacesuitColor": "Silver"}'`
+The application uses CAP (Cloud Application Programming) framework, Fiori List Report and Object Page (powered by
+SAPUi5), along
+with an SQLite database and mocked authentication.
 
-### UPDATE
-`curl -X PUT "http://localhost:4004/odata/v4/galactic/Spacefarers(6)" -H "Content-Type: application/json" \-d '{"spacesuitColor": "Platinum"}'`
+## Data Model
 
-### DELETE
-`curl -X DELETE "http://localhost:4004/odata/v4/galactic/Spacefarers(6)"`
+This model represents a galactic Spacefaring organization where Spacefarers are structured within a hierarchical
+system.
 
-### Add Fiori UI
+Each Spacefarer is assigned to one Position, and each Spacefarer belongs to one Intergalactic Department.
+(many-to-one relationships)
+
+Additionally, each Spacefarer has attributes such as name, origin planet, stardust collection, and wormhole navigation
+skills.
+
+![readme_uml_data.png](readme_uml_data.png)
+
+## Project set-up
+
+### Install and run project
+
+`npm i && cds deploy && cds watch`
+
+### Reinstall project, reset DB
+
+`rm -fr node_modules/ && rm -fr db.* && npm i && cds deploy && cds watch`
+
+### Reset DB (re-deploy from mock csvs)
+
+`rm -fr db.* && cds deploy && cds watch`
+
+### Reinstall Fiori Frontend if needed
+
+`rm -fr ./app`
+
 `npm install -g yo`
+
 `npm install -g @sap/generator-fiori`
-`yo --generators`
+
 `yo @sap/fiori`
 
-### Authentication & Authorization
+In the CLI wizard, choose *"List Report Page"* with *"Use a Local CAP Project"*
+
+## Authentication & Authorization
+
 Please use user `alice`'s admin credentials, to access the dashboard.
 
 user `dave`, despite having admin privileges, cannot access the dashboard because he resides on a restricted planet.
@@ -33,30 +58,16 @@ user `dave`, despite having admin privileges, cannot access the dashboard becaus
 We are using customized `@sap/cds` provided mock users for authentication.
 https://cap.cloud.sap/docs/node.js/authentication#mock-users
 
+## Email notifications
 
+This project uses Nodemailer to send email notifications. It may not work properly while connected to a VPN, so please
+disconnect from your VPN client while testing the application.
+
+Email credentials and are generated using Nodemailer’s built-in `createTestAccount()` function.
+We are using https://ethereal.email/ as email server provider.
+
+For more information, please check: https://www.nodemailer.com/smtp/testing/
 
 ---
----
-# Getting Started
 
-Welcome to your new project.
-
-It contains these folders and files, following our recommended project layout:
-
- File or Folder | Purpose                              
-----------------|--------------------------------------
- `app/`         | content for UI frontends goes here   
- `db/`          | your domain models and data go here  
- `srv/`         | your service models and code go here 
- `package.json` | project metadata and configuration   
- `readme.md`    | this getting started guide           
-
-## Next Steps
-
-- Open a new terminal and run `cds watch`
-- (in VS Code simply choose _**Terminal** > Run Task > cds watch_)
-- Start adding content, for example, a [db/schema.cds](db/schema.cds).
-
-## Learn More
-
-Learn more athttps://cap.cloud.sap/docs/get-started/.
+Learn more at https://cap.cloud.sap/docs/get-started/.

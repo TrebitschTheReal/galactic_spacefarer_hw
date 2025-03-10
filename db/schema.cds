@@ -27,10 +27,3 @@ entity IntergalacticDepartments : managed {
   fleetSize          : Integer;
   description        : String;
 }
-
-entity SpacefarerSecurity : managed {
-  key ID   : Integer;
-  spacefarer          : Association to Spacefarers;
-  restrictedPlanets   : String;
-  accessLevel         : Integer;
-}

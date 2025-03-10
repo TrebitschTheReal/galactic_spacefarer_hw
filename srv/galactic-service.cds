@@ -14,5 +14,4 @@ service GalacticService @(requires:'admin', path:'/galactic-list') {
   };
   entity Positions as projection on g.Positions;
   entity IntergalacticDepartments as projection on g.IntergalacticDepartments;
-  entity SpacefarerSecurity as projection on g.SpacefarerSecurity;
 }
