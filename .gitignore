@@ -2,6 +2,7 @@
 _out
 *.db
 .idea
+.vscode
 *.sqlite
 connection.properties
 default-*.json
