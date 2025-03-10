@@ -2,7 +2,6 @@
 
 ---
 
-
 This is a simple dashboard where the admin user can create, read, update, and delete data displayed on the List Report
 Page.
 
@@ -18,14 +17,14 @@ system.
 Each Spacefarer is assigned to one Position, and each Spacefarer belongs to one Intergalactic Department.
 (many-to-one relationships)
 
-Additionally, each Spacefarer has attributes such as name, origin planet, stardust collection, and wormhole navigation
+Additionally, each Spacefarer has attributes such as name, origin planet, stardust collection, spacesuit color, and wormhole navigation
 skills.
 
 ![readme_uml_data.png](readme_uml_data.png)
 
-## Project set-up
+## Project Setup
 
-### Install and run project
+### Install dependencies and run project
 
 ```
 npm i && cds deploy && cds watch
