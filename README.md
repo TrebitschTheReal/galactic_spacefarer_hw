@@ -27,31 +27,45 @@ skills.
 
 ### Install and run project
 
-`npm i && cds deploy && cds watch`
+```
+npm i && cds deploy && cds watch
+```
 
 ### Reinstall project, reset DB
 
-`rm -fr node_modules/ && rm -fr db.* && npm i && cds deploy && cds watch`
+```
+rm -fr node_modules/ && rm -fr db.* && npm i && cds deploy && cds watch
+```
 
-### Reset DB (re-deploy from mock csvs)
+### Reset DB (redeploy from mock csvs)
 
-`rm -fr db.* && cds deploy && cds watch`
+```
+rm -fr db.* && cds deploy && cds watch
+```
 
 ### Reinstall Fiori Frontend if needed
 
-`rm -fr ./app`
+```
+rm -fr ./app
+```
 
-`npm install -g yo`
+```
+npm install -g yo
+```
 
-`npm install -g @sap/generator-fiori`
+```
+npm install -g @sap/generator-fiori
+```
 
-`yo @sap/fiori`
+```
+yo @sap/fiori
+```
 
 In the CLI wizard, choose *"List Report Page"* with *"Use a Local CAP Project"*
 
 ## Authentication & Authorization
 
-Please use user `alice`'s admin credentials, to access the dashboard.
+Please use `alice`'s admin credentials, to access the dashboard.
 
 user `dave`, despite having admin privileges, cannot access the dashboard because he resides on a restricted planet.
 
@@ -70,4 +84,4 @@ For more information, please check: https://www.nodemailer.com/smtp/testing/
 
 ---
 
-Learn more at https://cap.cloud.sap/docs/get-started/.
+Learn more at https://cap.cloud.sap/docs/get-started/
