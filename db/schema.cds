@@ -1,8 +1,8 @@
+using {  managed, User, cuid } from '@sap/cds/common';
+
 namespace galactic;
 
-using {  managed, User } from '@sap/cds/common';
-entity Spacefarers : managed {
-  key ID   : UUID;
+entity Spacefarers : cuid, managed {
   name                 : String @mandatory;
   originPlanet         : String;
   stardustCollection   : Integer;
