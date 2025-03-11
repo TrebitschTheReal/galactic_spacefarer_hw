@@ -25,6 +25,12 @@ skills.
 
 ## Project Setup
 
+### Clone the project
+
+```
+git clone https://github.com/TrebitschTheReal/galactic_spacefarer_hw.git && cd galactic_spacefarer_hw
+```
+
 ### Install dependencies and run project
 
 ```
