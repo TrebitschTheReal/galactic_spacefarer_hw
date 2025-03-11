@@ -72,6 +72,10 @@ user `dave`, despite having admin privileges, cannot access the dashboard becaus
 We are using customized `@sap/cds` provided mock users for authentication.
 https://cap.cloud.sap/docs/node.js/authentication#mock-users
 
+## Form validation
+
+Both frontend form validation *(@mandatory name)* and backend validation *(before CREATE and UPDATE for the stardustCollection and wormholeNavigation properties)* are implemented.
+
 ## Email notifications
 
 This project uses Nodemailer to send email notifications. It may not work properly while connected to a VPN, so please
@@ -81,6 +85,25 @@ Email credentials and are generated using Nodemailer’s built-in `createTestAcc
 We are using https://ethereal.email/ as email server provider.
 
 For more information, please check: https://www.nodemailer.com/smtp/testing/
+
+## Tests
+
+We are using httpyac to run our tests:
+
+```
+npm install -g httpyac
+```
+
+```
+  "scripts": {
+    "test": "httpyac tests/Spacefarers.http --all",
+```
+
+If you have your project running locally, you can execute it from the root of the project folder, like this:
+
+```
+npm run test
+```
 
 ---
 

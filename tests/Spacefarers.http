@@ -1,0 +1,98 @@
+######################################################################
+# Test: GET all Spacefarers (Allowed: alice from Earth)
+######################################################################
+GET http://localhost:4004/galactic-list/Spacefarers HTTP/1.1
+Content-Type: application/json
+x-user: alice
+
+######################################################################
+# Test: GET all Spacefarers (Unauthorized: dave from Mars, restricted)
+######################################################################
+GET http://localhost:4004/galactic-list/Spacefarers HTTP/1.1
+Content-Type: application/json
+x-user: dave
+
+######################################################################
+# Test: Create a new Spacefarer (Allowed: alice) with mocked id
+######################################################################
+POST http://localhost:4004/galactic-list/Spacefarers HTTP/1.1
+Content-Type: application/json
+x-user: alice
+
+{
+  "id": "00000000-0000-0000-0000-000000000001",
+  "name": "Captain Kirk",
+  "originPlanet": "Earth",
+  "stardustCollection": 100,
+  "wormholeNavigation": 5,
+  "spacesuitColor": "Red",
+  "position": 1,
+  "department": 1
+}
+
+######################################################################
+# Test: GET a single Spacefarer by mocked ID (Allowed: alice)
+######################################################################
+GET http://localhost:4004/galactic-list/Spacefarers/00000000-0000-0000-0000-000000000001 HTTP/1.1
+Content-Type: application/json
+x-user: alice
+
+######################################################################
+# Test: Update an existing Spacefarer (PATCH, Allowed: alice) by mocked ID
+######################################################################
+PATCH http://localhost:4004/galactic-list/Spacefarers/00000000-0000-0000-0000-000000000001 HTTP/1.1
+Content-Type: application/json
+x-user: alice
+
+{
+  "stardustCollection": 110
+}
+
+######################################################################
+# Test: Delete a Spacefarer by mocked ID (Allowed: alice)
+######################################################################
+DELETE http://localhost:4004/galactic-list/Spacefarers/00000000-0000-0000-0000-000000000001 HTTP/1.1
+Content-Type: application/json
+x-user: alice
+
+######################################################################
+# Test: GET all Positions (Allowed: alice)
+######################################################################
+GET http://localhost:4004/galactic-list/Positions HTTP/1.1
+Content-Type: application/json
+x-user: alice
+
+######################################################################
+# Test: Create a new Position (Allowed: alice)
+######################################################################
+POST http://localhost:4004/galactic-list/Positions HTTP/1.1
+Content-Type: application/json
+x-user: alice
+
+{
+  "title": "Captain",
+  "cosmicRank": 10,
+  "requiredSkill": 5,
+  "description": "Leader of the crew"
+}
+
+######################################################################
+# Test: GET all IntergalacticDepartments (Allowed: alice)
+######################################################################
+GET http://localhost:4004/galactic-list/IntergalacticDepartments HTTP/1.1
+Content-Type: application/json
+x-user: alice
+
+######################################################################
+# Test: Create a new IntergalacticDepartment (Allowed: alice)
+######################################################################
+POST http://localhost:4004/galactic-list/IntergalacticDepartments HTTP/1.1
+Content-Type: application/json
+x-user: alice
+
+{
+  "name": "Exploration",
+  "headquartersPlanet": "Mars",
+  "fleetSize": 3,
+  "description": "Department in charge of exploration missions"
+}
